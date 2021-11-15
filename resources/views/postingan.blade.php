@@ -1,8 +1,13 @@
 @extends('layouts/main')
 
-@dump($newpostingan)
+{{-- @dump($newpostingan) --}}
 @section('container')
-    <h2>{{ $newpostingan['jdudul'] }}</h2>   
-    <h5>by; {{ $newpostingan['pembuat'] }}</h5>  
-    <p>{{ $newpostingan['des'] }}</p>
+    <h2>{{ $newpostingan->title }}</h2>   
+    {!! $newpostingan->body !!}
 @endsection
+
+
+
+
+
+

@@ -2,58 +2,15 @@
 
 namespace App\Models;
 
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-// class Post extends Model
-// {
-//     use HasFactory;
-// }
-
-class Post
+class Post extends Model
 {
+    use HasFactory;
 
-    private static $blog_poset =
-    [
-        [
-            'jdudul' => 'satu',
-            'slug' => 'post-satu',
-            'pembuat' => 'pembuat satu',
-            'des' => 'loremsdfoljsdofijsdofijosdfjoisd'
-        ],
-        [
-            'jdudul' => 'dua',
-            'slug' => 'post-dua',
-            'pembuat' => 'pembuat dua',
-            'des' => '
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem porro, aperiam et qui, repellat aliquam ea, voluptatum tempore nostrum saepe repudiandae? Voluptas, deleniti. Aut quo dolores, dignissimos corporis eligendi aspernatur. Voluptas alias et ratione ut molestiae sit a voluptatum accusantium!'
-        ],
-        [
-            'jdudul' => 'tiga',
-            'slug' => 'post-tiga',
-            'pembuat' => 'pembuat tiga',
-            'des' => '
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem porro, aperiam et qui, repellat aliquam ea, voluptatum tempore nostrum saepe repudiandae? Voluptas, deleniti. Aut quo dolores, dignissimos corporis eligendi aspernatur. Voluptas alias et ratione ut molestiae sit a voluptatum accusantium!'
-        ]
-    ];
-
-    public static function all()
-    {
-        //mengunakan self karena properti static,jika mengunakan properti biasa mengunakan this->
-        return collect(self::$blog_poset);
-    }
-
-    public static function find($slug)
-    {
-        $newpost = static::all();
-        // $post = [];
-
-        // foreach ($newpost as $p) {
-        //     if ($p['slug'] === $slug) {
-        //         $post = $p;
-        //     }
-        // }
-
-        return $newpost->firstwhere('slug', $slug);
-    }
+    //fillable berarti field2 apa saja yang bisa di isi 
+    // protected $fillable = ['title', 'excerpt', 'body'];
+    //guarded berarti berikut field2 yg di tulis di bawah ini yang tidak bsia di isi,selain dibwah ini bisa
+    protected $guarded = ['id'];
 }

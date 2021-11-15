@@ -40,4 +40,4 @@ Route::get('/post', [PostController::class, 'index']);
 
 //halaman sigle post
 
-Route::get('post/{slug}', [PostController::class, 'show']);
+Route::get('post/{post:slug}', [PostController::class, 'show']);
