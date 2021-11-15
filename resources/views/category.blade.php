@@ -2,7 +2,7 @@
 
 {{-- @dump($postingan) --}}
 @section('container')
-    <h1>post</h1>    
+    <h1>post Category: {{ $category }}</h1>    
 
     @foreach ( $postingan as $post)
     <article>

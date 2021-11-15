@@ -2,16 +2,18 @@
 
 {{-- @dump($postingan) --}}
 @section('container')
-    <h1>post</h1>    
+    <h1>Category</h1>    
 
-    @foreach ( $postingan as $post)
-    <article>
-        <a href="/post/{{ $post['slug'] }}">
-        <h3>{{ $post->title }}</h3>
+    @foreach ( $categories as $category)
+    
+    <ul>
+        <li>
+        <a href="/categories/{{ $category['slug'] }}">
+        <h3>{{ $category->name }}</h3>
         </a>
-        <p>{{ $post->excerpt }}</p>
-        {{-- <p>{{ $post['body'] }}</p> --}}
-    </article>
+
+        </li>
+    </ul>
     @endforeach
 @endsection
 {{-- Post::create([
