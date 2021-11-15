@@ -1,6 +1,9 @@
 <?php
 
+
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,71 +36,8 @@ Route::get('/about', function () {
 
 
 
-Route::get('/post', function () {
-    $blog_poset = [
-        [
-            'jdudul' => 'satu',
-            'slug' => 'post-satu',
-            'pembuat' => 'pembuat satu',
-            'des' => 'loremsdfoljsdofijsdofijosdfjoisd'
-        ],
-        [
-            'jdudul' => 'dua',
-            'slug' => 'post-dua',
-            'pembuat' => 'pembuat dua',
-            'des' => '
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem porro, aperiam et qui, repellat aliquam ea, voluptatum tempore nostrum saepe repudiandae? Voluptas, deleniti. Aut quo dolores, dignissimos corporis eligendi aspernatur. Voluptas alias et ratione ut molestiae sit a voluptatum accusantium!'
-        ],
-        [
-            'jdudul' => 'tiga',
-            'slug' => 'post-tiga',
-            'pembuat' => 'pembuat tiga',
-            'des' => '
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem porro, aperiam et qui, repellat aliquam ea, voluptatum tempore nostrum saepe repudiandae? Voluptas, deleniti. Aut quo dolores, dignissimos corporis eligendi aspernatur. Voluptas alias et ratione ut molestiae sit a voluptatum accusantium!'
-        ]
-    ];
-    return view('post', [
-
-        'title' => 'Post',
-        'postingan' => $blog_poset
-    ]);
-});
+Route::get('/post', [PostController::class, 'index']);
 
 //halaman sigle post
 
-Route::get('post/{slug}', function ($slug) {
-    $blog_poset = [
-        [
-            'jdudul' => 'satu',
-            'slug' => 'post-satu',
-            'pembuat' => 'pembuat satu',
-            'des' => 'loremsdfoljsdofijsdofijosdfjoisd'
-        ],
-        [
-            'jdudul' => 'dua',
-            'slug' => 'post-dua',
-            'pembuat' => 'pembuat dua',
-            'des' => '
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem porro, aperiam et qui, repellat aliquam ea, voluptatum tempore nostrum saepe repudiandae? Voluptas, deleniti. Aut quo dolores, dignissimos corporis eligendi aspernatur. Voluptas alias et ratione ut molestiae sit a voluptatum accusantium!'
-        ],
-        [
-            'jdudul' => 'tiga',
-            'slug' => 'post-tiga',
-            'pembuat' => 'pembuat tiga',
-            'des' => '
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem porro, aperiam et qui, repellat aliquam ea, voluptatum tempore nostrum saepe repudiandae? Voluptas, deleniti. Aut quo dolores, dignissimos corporis eligendi aspernatur. Voluptas alias et ratione ut molestiae sit a voluptatum accusantium!'
-        ]
-    ];
-
-    $new_post = [];
-
-    foreach ($blog_poset as $post) {
-        if ($post['slug'] === $slug) {
-            $new_post = $post;
-        }
-    }
-    return view('postingan', [
-        'title' => 'postingan',
-        'newpostingan' => $new_post
-    ]);
-});
+Route::get('post/{slug}', [PostController::class, 'show']);

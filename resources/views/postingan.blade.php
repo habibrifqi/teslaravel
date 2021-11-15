@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-
+@dump($newpostingan)
 @section('container')
     <h2>{{ $newpostingan['jdudul'] }}</h2>   
     <h5>by; {{ $newpostingan['pembuat'] }}</h5>  
