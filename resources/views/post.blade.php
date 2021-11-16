@@ -3,7 +3,7 @@
 @dump($postingan)
 
 @section('container')
-    <h1>post</h1>    
+    <h1>{{ $title }}</h1>    
 
     @foreach ( $postingan as $post)
     <article class="mb-5 border-bottom pb-3">
