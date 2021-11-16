@@ -5,12 +5,14 @@
     <h1>post</h1>    
 
     @foreach ( $postingan as $post)
-    <article>
-        <a href="/post/{{ $post['slug'] }}">
+    <article class="mb-5 border-bottom pb-3">
+        <a class="text-decoration-none" href="/post/{{ $post['slug'] }}">
         <h3>{{ $post->title }}</h3>
         </a>
+
+        <p>By: <a  class="text-decoration-none" href="">{{ $post->user->name }}</a> in <a class="text-decoration-none" href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
         <p>{{ $post->excerpt }}</p>
-        {{-- <p>{{ $post['body'] }}</p> --}}
+        <a href="">Read more</a>
     </article>
     @endforeach
 @endsection
