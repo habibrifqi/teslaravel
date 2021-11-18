@@ -1,8 +1,8 @@
 @extends('layouts/main')
 
-{{-- @dump($postingan) --}}
+{{-- @dump($categories) --}}
 @section('container')
-    <h1>Category</h1>    
+    {{-- <h1>Category</h1>    
 
     @foreach ( $categories as $category)
     
@@ -14,7 +14,36 @@
 
         </li>
     </ul>
-    @endforeach
+    @endforeach --}}
+    <section class="ftco-section" id="services-section">
+    	<div class="container">
+    		<div class="row justify-content-center py-0 mt-0">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	<h1 class="big big-2">Kategori</h1>
+            <h2 class="mb-4">Kategori</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+          </div>
+        </div>
+    		<div class="row">
+				@foreach ( $categories as $category)
+					<div class="col-md-4 text-center d-flex ftco-animate">
+						<a href="/categories/{{ $category['slug'] }}" class="services-1">
+							<span class="icon">
+								<i class="">
+                                     <img class="z" style="" width="50" height="auto" src="{{ asset('images/icn/'.$category->name.'.svg') }}" alt="">
+									 {{-- <img class="z" style="" width="50" height="auto" src="{{ asset('images/icn/Personal.svg') }}" alt=""> --}}
+                                {{-- <img class="z1" style="" style="fill: royalblue" width="100%" height="auto" src="{{ asset('images/z1.svg') }}" alt=""> --}}
+                           		</i>
+							</span>
+							<div class="desc">
+								<h3 class="mb-5">{{ $category->name }}</h3>
+							</div>
+						</a>
+					</div>
+				@endforeach 
+			</div>
+    	</div>
+    </section>
 @endsection
 {{-- Post::create([
     'title' => 'judul ketiga',
