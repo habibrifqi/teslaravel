@@ -53,18 +53,18 @@ Route::get('/categories', function () {
     ]);
 });
 
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('post', [
-        'active' => 'active',
-        'title' => "Post Category : $category->name",
-        'postingan' => $category->posts->load('category', 'author')
-    ]);
-});
+// Route::get('/categories/{category:slug}', function (Category $category) {
+//     return view('post', [
+//         'active' => 'active',
+//         'title' => "Post Category : $category->name",
+//         'postingan' => $category->posts->load('category', 'author')
+//     ]);
+// });
 
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('post', [
-        'active' => 'active',
-        'title' => "Post By author : $author->name",
-        'postingan' => $author->posts->load('category', 'author')
-    ]);
-});
+// Route::get('/authors/{author:username}', function (User $author) {
+//     return view('post', [
+//         'active' => 'active',
+//         'title' => "Post By author : $author->name",
+//         'postingan' => $author->posts->load('category', 'author')
+//     ]);
+// });

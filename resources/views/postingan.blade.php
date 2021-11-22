@@ -137,7 +137,7 @@
               <p>Voluptas dolores dignissimos dolorum temporibus, autem aliquam ducimus at officia adipisci quasi nemo a perspiciatis provident magni laboriosam repudiandae iure iusto commodi debitis est blanditiis alias laborum sint dolore. Dolores, iure, reprehenderit. Error provident, pariatur cupiditate soluta doloremque aut ratione. Harum voluptates mollitia illo minus praesentium, rerum ipsa debitis, inventore?</p>--}}
               <div class="tag-widget post-tag-container mb-5 mt-5">
                 <div class="tagcloud">
-                  <a href="/categories/{{ $newpostingan->category->slug }}" class="tag-cloud-link">{{ $newpostingan->category->name }}</a>
+                  <a href="/post?category={{ $newpostingan->category->slug }}" class="tag-cloud-link">{{ $newpostingan->category->name }}</a>
                 </div>
               </div> 
               
@@ -268,10 +268,10 @@
             </div> <!-- .col-md-8 -->
             <div class="col-lg-4 sidebar ftco-animate">
               <div class="sidebar-box">
-                <form action="#" class="search-form">
+                <form action="/post" class="search-form" method="GET" id="form_id">
                   <div class="form-group">
-                    <span class="icon icon-search"></span>
-                    <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                    <span  type="submit" class="icon icon-search"  id="submit_id"></span>
+                    <input type="text" name="search" value="{{ request('search') }}" class="form-control" placeholder="Type a keyword and hit enter">
                   </div>
                 </form>
               </div>
@@ -284,7 +284,7 @@
                   <li><a href="#">Landscape Design <span>(42)</span></a></li>
                 </ul>
               </div>
-  
+              
               <div class="sidebar-box ftco-animate">
                 <h3 class="heading-sidebar">Recent Blog</h3>
                 <div class="block-21 mb-4 d-flex">

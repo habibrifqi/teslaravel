@@ -7,14 +7,15 @@
         <div class="container">
           <h2 class="mb-3">{{ $title }}</h2>
           <div class="row">
-            
+            @if ($postingan->count())
+        
+           
             <div class="col-lg-8 ftco-animate">
               <div class="row d-flex">
-
                 @foreach ( $postingan as $post)
                     <div class="col-md-6 d-flex ftco-animate">
                         <div class="blog-entry">
-                           <a href="/categories/{{ $post->category->slug }}">
+                           <a href="/post?category={{ $post->category->slug }}">
                           <div style="z-index: 100; background-color:rgba(0, 0, 0, 0.7)" class="position-absolute px-3">
                            <p id="kat" class="kat pt-3">{{ $post->category->name }}</p>
                           </div></a>
@@ -24,7 +25,7 @@
                             <div class="d-flex align-items-center mb-3 meta">
                             <p class="mb-0">
                                 <span class="mr-2">{{ $post->created_at->format("d M,Y")}}</span>
-                                <a href="/authors/{{ $post->author->username }}" class="mr-2">{{ $post->author->name }}</a>
+                                <a href="/post?author={{ $post->author->username }}" class="mr-2">{{ $post->author->name }}</a>
                                 <a href="#" class="meta-chat"><span class="icon-chat">3</span></a>
                             </p>
                             </div>
@@ -34,18 +35,34 @@
                         </div>
                     </div>
                 @endforeach 
-                
-                  
-                  
-
+              </div>
+              <div class="d-flex justify-content-center">
+              {{ $postingan->links() }} 
+              </div>
+            </div> <!-- .col-md-8 -->        
+            @else
+            <div class="col-lg-8 ftco-animate">
+              <div class="row d-flex justify-content-center">
+               <h2>ngak ada postingan</h2> 
               </div> 
-            </div> <!-- .col-md-8 -->
+            </div>
+            @endif
             <div class="col-lg-4 sidebar ftco-animate">
               <div class="sidebar-box">
-                <form action="#" class="search-form">
-                  <div class="form-group">
-                    <span class="icon icon-search"></span>
-                    <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                <form action="/post" class="search-form" method="GET" id="form_id">
+                  @if (request('category'))
+                  <input type="hidden" name="category" value="{{ request('category') }}">
+                      
+                   {{-- @endif --}}
+                  {{-- @if () --}}
+                      
+                  @elseif  (request('author') ) 
+                  <input type="hidden" name="author" value="{{ request('author') }}">
+                  @endif
+                  <div class="form-group" >
+                   
+                   <span  type="submit" class="icon icon-search" id="submit_id"></span>
+                    <input type="text" name="search" value="{{ request('search') }}" class="form-control" placeholder="Type a keyword and hit enter">
                   </div>
                 </form>
               </div>

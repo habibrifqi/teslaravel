@@ -27,7 +27,7 @@
     		<div class="row">
 				@foreach ( $categories as $category)
 					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="/categories/{{ $category['slug'] }}" class="services-1">
+						<a href="/post?category={{ $category['slug'] }}" class="services-1">
 							<span class="icon">
 								<i class="">
                                      <img class="z" style="" width="50" height="auto" src="{{ asset('images/icn/'.$category->name.'.svg') }}" alt="">

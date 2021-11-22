@@ -129,6 +129,7 @@
     <script src="{{ asset('js/scrollax.min.js') }}"></script>
     
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/tambahan.js') }}"></script>
 
 
     {{-- <script src="js/jquery.min.js"></script>
@@ -145,6 +146,12 @@
     <script src="js/scrollax.min.js"></script>
     
     <script src="js/main.js"></script> --}}
+    <script>
+      // $('#submit_id').on('click',function(){
+      //     $('#form_id').submit();
+      //     // console.log("sdf");
+      // });
+    </script>
     
   </body>
 </html>
