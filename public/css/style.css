@@ -12596,6 +12596,108 @@ textarea.form-control {
     stroke-linecap: round;
 }
 
+/* css Login */
+
+/* .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+} */
+
+/* .form-signin .checkbox {
+    font-weight: 400;
+} */
+
+#row-form {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* .form-signin .form-floating:focus-within {
+    z-index: 2;
+} */
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #ffbd39;
+    border-color: #ffbd39;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #fff;
+    background-color: #ffbd39;
+    border: 1px solid #ffbd39;
+    margin: 0 3px;
+}
+
+.page-link:hover {
+    color: #ffbd39;
+    background-color: #e8e8e8;
+    border: 1px solid #e8e8e8;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #ffbd39;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+/* .page-item.active .page-link {
+    z-index: 1;
+    color: #ffbd39;
+    background-color: green;
+    border-color: green;
+} */
+/* .pagination .page-item {
+    background-color: yellow;
+}
+.pagination > li > a,
+.pagination > li > span {
+    color: green;
+}
+*/
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #b87f0f;
+    border-color: #b87f0f;
+}
+
+/*  */
+
+.ff-form {
+    padding-top: 5em;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
 @-webkit-keyframes loader-rotate {
     100% {
         -webkit-transform: rotate(360deg);

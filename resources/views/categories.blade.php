@@ -30,11 +30,11 @@
 						<a href="/post?category={{ $category['slug'] }}" class="services-1">
 							<span class="icon">
 								<i class="">
-                                     <img class="z" style="" width="50" height="auto" src="{{ asset('images/icn/'.$category->name.'.svg') }}" alt="">
+                                     <img class="z" style="" width="50" height="auto" src="{{ asset('images/icn/'.$category->slug.'.svg') }}" alt="">
 									 {{-- <img class="z" style="" width="50" height="auto" src="{{ asset('images/icn/Personal.svg') }}" alt=""> --}}
                                 {{-- <img class="z1" style="" style="fill: royalblue" width="100%" height="auto" src="{{ asset('images/z1.svg') }}" alt=""> --}}
                            		</i>
-							</span>
+							</span>     
 							<div class="desc">
 								<h3 class="mb-5">{{ $category->name }}</h3>
 							</div>

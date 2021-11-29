@@ -39,9 +39,9 @@
           <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
           <li class="nav-item"><a href="index.html#resume-section" class="nav-link"><span>Resume</span></a></li>
           <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>Services</span></a></li>
-          <li class="nav-item"><a href="index.html#skills-section" class="nav-link"><span>Skills</span></a></li>
-          <li class="nav-item"><a href="index.html#projects-section" class="nav-link"><span>Projects</span></a></li>
-          <li class="nav-item"><a href="/categories/programing" class="nav-link"><span>My Blog</span></a></li>
+          <li class="nav-item"><a href="index.html#skills-section" class="nav-link "><span>Skills</span></a></li>
+          <li class="nav-item"><a href="/login" class="nav-link {{ ($active === "login" ) ? 'active' : '' }}"><span>Login</span></a></li>
+          <li class="nav-item"><a href="/categories" class="nav-link {{ ($active === "categories" ) ? 'active' : '' }}"><span>kategori</span></a></li>
           <li class="nav-item"><a href="/post" class="nav-link {{ ($active === 'active') ? 'active' : '' }} "><span>Contact</span></a></li>
         </ul>
       </div>
