@@ -36,13 +36,38 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav nav ml-auto">
           <li class="nav-item"><a href="index.html#home-section" class="nav-link"><span>Home</span></a></li>
-          <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
-          <li class="nav-item"><a href="index.html#resume-section" class="nav-link"><span>Resume</span></a></li>
           <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>Services</span></a></li>
           <li class="nav-item"><a href="index.html#skills-section" class="nav-link "><span>Skills</span></a></li>
-          <li class="nav-item"><a href="/login" class="nav-link {{ ($active === "login" ) ? 'active' : '' }}"><span>Login</span></a></li>
           <li class="nav-item"><a href="/categories" class="nav-link {{ ($active === "categories" ) ? 'active' : '' }}"><span>kategori</span></a></li>
           <li class="nav-item"><a href="/post" class="nav-link {{ ($active === 'active') ? 'active' : '' }} "><span>Contact</span></a></li>
+          @auth
+            
+          {{-- <li class="nav-item"><a href="/dashboard" class="nav-link"><span>Dashboard, {{ auth()->user()->name }}</span></a></li> --}}
+           <li class="dropdown  nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard, {{ auth()->user()->name }} <span class="caret"></span></a>
+            <ul class="dropdown-menu nav-item">
+              <li><a href="/dashboard"><i class="fas fa-tachometer-alt"></i> My dasboard</a></li>
+              <li>
+                  <form action="/logout" method="post">
+                    @csrf
+                      <button type="submit" class="ii"><i class="fas fa-sign-out-alt"></i> Log0ut</button>
+                  </form>
+                  {{-- <a href="#"><i class="fas fa-sign-out-alt"></i>LogOut</a> --}}
+                </li>
+              {{-- <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li> --}}
+            </ul>
+          </li>       
+          @else
+
+           <li class="nav-item"><a href="/login" class="nav-link {{ ($active === "login" ) ? 'active' : '' }}"><span>Login</span></a></li>        
+              
+          @endauth
+        
+          
+         
+          
         </ul>
       </div>
     </div>

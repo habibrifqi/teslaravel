@@ -12692,6 +12692,25 @@ textarea.form-control {
     border-bottom-left-radius: 0;
 }
 
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link span {
+    position: relative;
+    display: inline;
+    padding-bottom: 2px;
+}
+
+ul.dropdown-menu.nav-item.show {
+    background: black;
+    text-align: inherit;
+    margin-left: 1em;
+}
+
+button.ii {
+    background: black;
+    border: none;
+    padding: 0;
+    color: #ffbd39;
+}
+
 .form-signin input[type="password"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;
