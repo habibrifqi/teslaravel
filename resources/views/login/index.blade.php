@@ -6,10 +6,18 @@
     <div class="row justify-content-center" id="row-form">
         <div class="col-md-5">
             <main class="form-signin">
+                
                 <form class="ff-form">
                     <div class="img-login text-center">
                         <img class="text-center mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
                     </div>
+                    @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Registrasi Berhasil!</strong> silahkan Login.
+                      </div>
+                    @endif
+                    
                     
                 <h1 class="h3 mb-3 fw-normal text-center">Please sign in</h1>
                 

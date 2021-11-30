@@ -12,21 +12,43 @@
                     </div>
                     
                 <h1 class="h3 mb-3 fw-normal text-center">Registrasi Form</h1>
-                    
+                    @csrf
                 <div class="form-floating">
                     <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="name">
+                    <input type="text" name="name" class="form-control @error('name')
+                        is-invalid
+                    @enderror" id="name" placeholder="name" required value="{{ old('name') }}">
+                    @error('name')
+                       <div id="validationServer03Feedback" class="invalid-feedback">
+                        {{ $message }}
+                      </div> 
+                    @enderror
+                    
                 </div>
                 <div class="form-floating">
                     <label class="mt-3" for="Username">Username</label>
-                    <input type="text" name="username" class="form-control" id="username" placeholder='username'>
+                    <input type="text" name="username" class="form-control @error('username')
+                        is-invalid
+                    @enderror" id="username" placeholder='username' required value="{{ old('username') }}">
+                    @error('username')
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                     {{ $message }}
+                   </div> 
+                    @enderror
                 </div>
                 <div class="form-floating">
                     <label class="mt-3" for="email">Email address</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+                    <input type="email" name="email" class="form-control @error('email')
+                    is-invalid
+                    @enderror" id="email" placeholder="name@example.com" required value="{{ old('email') }}">
+                    @error('email')
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                     {{ $message }}
+                   </div> 
+                    @enderror
                 </div>
                 <div class="form-floating">
-                    <label class="mt-3" for="password">Password</label>
+                    <label class="mt-3" for="password">Password</label required>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                 </div>
             
