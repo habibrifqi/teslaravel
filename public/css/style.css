@@ -12717,6 +12717,10 @@ button.ii {
     border-top-right-radius: 0;
 }
 
+.blog-entry {
+    width: 100%;
+}
+
 @-webkit-keyframes loader-rotate {
     100% {
         -webkit-transform: rotate(360deg);

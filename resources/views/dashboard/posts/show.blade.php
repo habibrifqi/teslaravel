@@ -6,7 +6,11 @@
       <div class="col-lg-10 ">
         <h2 class="mb-3">{{ $newpostingan->title }}</h2>
           <img src="https://source.unsplash.com/1600x900/?computer" alt="" class="img-fluid">
-            </p>{!! $newpostingan->body !!} 
+            </p>
+            
+              {!! $newpostingan->body !!} 
+            
+            
             <div class="tag-widget post-tag-container mb-5 mt-5">
                 <div class="tagcloud">
                     <a href="/post?category={{ $newpostingan->category->slug }}" class="tag-cloud-link">{{ $newpostingan->category->name }}</a>
