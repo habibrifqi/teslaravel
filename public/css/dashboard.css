@@ -102,3 +102,7 @@ thead.ss {
     border-top: none;
     border-top: hidden;
 }
+
+/* trix-toolbar [data-trix-button-group="file-tools"] {
+    display: none;
+} */

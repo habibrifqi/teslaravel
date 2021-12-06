@@ -18,6 +18,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
+    {{-- TRIX --}}
+    <link rel="stylesheet" href="{{ asset('css/trix.css') }}">
+     
+
     <title>error dashboard</title>
 
     <!-- Bootstrap core CSS -->
@@ -27,6 +31,11 @@
     <!-- Custom styles for this template -->
     {{-- <link href="dashboard.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <style>
+      trix-toolbar [data-trix-button-group="file-tools"] {
+    display: none;
+}
+    </style>
   </head>
 
   <body>
@@ -194,8 +203,17 @@
       feather.replace()
     </script>
 
+    {{-- TRIX JS --}}
+    <script src="{{ asset('js/trix.js') }}"></script>
+
     <!-- Graphs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      document.addEventListener('trix-file-accept',function(e)
+      {
+        e.preventDefault();
+      })
+    </script>
    {{-- SCRIPT CHART START --}}
    {{-- <script>
       var ctx = document.getElementById("myChart");
