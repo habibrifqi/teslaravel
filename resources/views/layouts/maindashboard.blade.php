@@ -208,6 +208,7 @@
 
     <!-- Graphs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       document.addEventListener('trix-file-accept',function(e)
       {
@@ -245,5 +246,16 @@
       });
     </script> --}}
     {{-- SCRIPT CHART END --}}
+    <script>
+
+    setTimeout(
+      function() 
+      {
+        $(document).ready(function(){
+        $(".preloader").hide();
+      })
+      }, 3000);
+     
+      </script>
   </body>
 </html>

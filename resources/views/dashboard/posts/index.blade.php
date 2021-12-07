@@ -28,8 +28,13 @@
                     <td>{{ $post->Category->name }}</td>
                     <td>
                         <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
-                        <a href="/dashboard/post/{{ $post->id }}" ><span data-feather="edit"></span></a>
-                        <a href="/dashboard/post/{{ $post->id }}" class="text-danger"><span data-feather="trash"></span></a>
+                        <a href="/dashboard/posts/{{ $post->slug }}/edit" ><span data-feather="edit"></span></a>
+                        <form action="/dashboard/posts/{{  $post->slug }}" method="post" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <button role="button" class="text-danger border-0 bg-transparent m-0 p-0 bb-delete" onclick="return confirm('yakin kah maniezz')" ><span data-feather="trash"></span></button>
+                        </form>
+                        {{-- <a href="/dashboard/posts/{{ $post->slug}}" class="text-danger"><span data-feather="trash"></span></a> --}}
                     </td>
                 </tr>
                 @endforeach

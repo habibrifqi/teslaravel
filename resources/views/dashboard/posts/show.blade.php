@@ -1,6 +1,12 @@
 @extends('layouts/maindashboard')
 
 @section('container')
+<div id="preloader" class="preloader">
+  <div class="loading">
+    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftenor.com%2Fsearch%2Floading-gifs&psig=AOvVaw2BWrOZd1oHSZ4NPdGKGvaR&ust=1638886736292000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPCw6v-uz_QCFQAAAAAdAAAAABAD" width="80">
+    <p>Harap Tunggu</p>
+  </div>
+</div>
 <div class="container">
     <div class="row">
       <div class="col-lg-10 ">
@@ -27,8 +33,14 @@
         </div>
       </div>
       <div class="col-lg-2 ">
-          <a href="" class="btn btn-warning">edit</a>
-          <a href="" class="btn btn-danger">delete</a>
+          <a href="/dashboard/posts/{{ $newpostingan->slug }}/edit" class="btn btn-warning">edit</a>
+          {{-- <a href="/dashboard/posts/" class="btn btn-danger">delete</a> --}}
+
+          <form action="/dashboard/posts/{{  $newpostingan->slug }}" method="post" class="d-inline">
+            @method('delete')
+            @csrf
+            <button role="button" class="text-light border-0 bg-danger bb-delete btn " onclick="return confirm('yakin kah maniezz')" ><span data-feather="trash" class="dt"></span>Delete</button>
+        </form>
       </div>
     </div>
 </div>
