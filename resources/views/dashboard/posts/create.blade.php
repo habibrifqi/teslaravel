@@ -6,7 +6,7 @@
 </div>
 
 <div class="col-lg-8 p-0">
-    <form method="post" action="/dashboard/posts" class="mb-5">
+    <form method="post" action="/dashboard/posts" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -44,6 +44,20 @@
                 @endforeach
                 {{-- <option >-- MASUKKAN KATEGORI --</option> --}}
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">post image</label>
+            <input class="form-control 
+            @error('image')
+                is-invalid
+            @enderror" 
+            type="file" id="image" name="image">
+            @error('image')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>         
+            @enderror
         </div>
 
         <div class="mb-3">

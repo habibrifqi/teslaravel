@@ -11,7 +11,12 @@
     <div class="row">
       <div class="col-lg-10 ">
         <h2 class="mb-3">{{ $newpostingan->title }}</h2>
-          <img src="https://source.unsplash.com/1600x900/?computer" alt="" class="img-fluid">
+        @if ($newpostingan->image)
+        <img src="{{ asset('storage/'.$newpostingan->image) }}" alt="" class="img-fluid">
+        @else
+            <img src="https://source.unsplash.com/1600x900/?computer" alt="" class="img-fluid">
+        @endif
+          
             </p>
             
               {!! $newpostingan->body !!} 

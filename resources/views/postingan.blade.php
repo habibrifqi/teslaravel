@@ -122,7 +122,12 @@
   
   
               <h2 class="mb-3">{{ $newpostingan->title }}</h2>
-                <img src="https://source.unsplash.com/1600x900/?computer" alt="" class="img-fluid">
+              @if ($newpostingan->image)
+                <img src="{{ asset('storage/'.$newpostingan->image) }}" alt="" class="img-fluid">
+              @else
+                  <img src="https://source.unsplash.com/1600x900/?computer" alt="" class="img-fluid">
+              @endif
+               
               </p>
               {{-- <p>Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis repellat sunt doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam voluptatem soluta illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor minima esse vero ut ea, repudiandae suscipit!</p> --}}
               {!! $newpostingan->body !!} 

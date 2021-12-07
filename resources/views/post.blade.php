@@ -19,7 +19,14 @@
                           <div style="z-index: 100; background-color:rgba(0, 0, 0, 0.7)" class="position-absolute px-3">
                            <p id="kat" class="kat pt-3">{{ $post->category->name }}</p>
                           </div></a>
-                        <a href="single.html" class="block-20" style="background-image: url('https://source.unsplash.com/1600x900/?{{ $post->category->name }}');">
+                          @if ($post->image)
+                          {{-- <img src="{{ asset('storage/'.$newpostingan->image) }}" alt="" class="img-fluid"> --}}
+                          <a href="single.html" class="block-20" style="background-image: url('{{ asset('storage/'.$post->image) }}');">
+                          @else
+                              {{-- <img src="https://source.unsplash.com/1600x900/?computer" alt="" class="img-fluid"> --}}
+                              <a href="single.html" class="block-20" style="background-image: url('https://source.unsplash.com/1600x900/?{{ $post->category->name }}');">
+                          @endif
+                        
                         </a>
                         <div class="text mt-3 float-right d-block">
                             <div class="d-flex align-items-center mb-3 meta">
