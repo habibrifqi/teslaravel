@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\DB;
 
 
 class Post extends Model
@@ -69,5 +70,28 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public static function Categ()
+    {
+        // $categor = $this->belongsTo(Category::class);
+        $categ = DB::table('posts')
+            ->join('categories', 'categories.id', '=', 'posts.category_id')
+            ->select('category_id', 'categories.name', DB::raw('count(posts.id) as tt'))
+            // ->select('category_id', 'categories.name', 'categories.slug', DB::raw('count(posts.id) as tt'))
+            // ->select('category_id')
+            ->groupBy('posts.category_id', 'categories.name')
+            ->get();
+
+        return $categ;
+    }
+
+    public static function ConSide()
+    {
+        $cc =  Post::inRandomOrder()
+            ->limit(4)
+            ->get();
+
+        return $cc;
     }
 }

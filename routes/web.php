@@ -20,13 +20,15 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        'name' => 'Habib rifqi',
-        'active' => 'active',
-        'title' => 'Home'
-    ]);
-});
+// Route::get('/', function () {
+//     return view('home', [
+//         'name' => 'Habib rifqi',
+//         'active' => 'active',
+//         'title' => 'Home'
+//     ]);
+// });
+
+Route::get('/', [PostController::class, 'index']);
 
 Route::get('/home', function () {
     return view('welcome');

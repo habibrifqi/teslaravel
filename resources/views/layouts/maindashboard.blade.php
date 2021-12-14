@@ -247,6 +247,50 @@
     </script> --}}
     {{-- SCRIPT CHART END --}}
     <script>
+      //  $('input[type="file"][name="image"]').val('');
+      //       //Image preview
+      //       $('input[type="file"][name="image"]').on('change', function(){
+      //           var img_path = $(this)[0].value;
+      //           var img_holder = $('.img-preview');
+      //           var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
+                // console.log(img_path)
+      //       });
+      // if(e.target.files.length !== 0){
+      // this.setState({image: URL.createObjectURL(e.target.files[0])})
+      // const blob = URL.createObjectURL(image.files[0]);
+      //   imgPreview.src = blob;
+      // function previewImage(){
+        // var image = document.querySelector("#image");
+        // var imgPreview = document.querySelector('.img-preview');
+
+        // imgPreview.style.display = 'block';
+
+        // const blob = URL.createObjectURL(image.files[0]);
+        // imgPreview.src = blob;
+        
+        // var oFReader = new FileReader();
+        // oFReader.readAsDataURL(image.files[0]);
+
+        // const blob = URL.createObjectURL(image.files[0]);
+        // imgPreview.src = blob;
+
+        // console.log(image);
+
+        // oFReader.onload = function(oFREvent){
+        //     imgPreview.src = oFREvent.target.result;
+        //     console.log('asdasd');
+        // }
+    // }
+
+
+
+
+
+
+
+
+
+
 
     setTimeout(
       function() 
@@ -256,6 +300,18 @@
       })
       }, 3000);
      
+      </script>
+      <script type="text/javascript">
+        $('#image').change(function(){
+               
+        let reader = new FileReader();
+        reader.onload = (e) => { 
+          $('.img-preview').attr('src', e.target.result); 
+        }
+        reader.readAsDataURL(this.files[0]); 
+        
+        console.log(reader);
+       });
       </script>
   </body>
 </html>

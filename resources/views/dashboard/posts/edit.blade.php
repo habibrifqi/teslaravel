@@ -6,7 +6,7 @@
 </div>
 
 <div class="col-lg-8 p-0">
-    <form method="post" action="/dashboard/posts/{{ $post->slug }}" class="mb-5">
+    <form method="post" action="/dashboard/posts/{{ $post->slug }}" class="mb-5" enctype="multipart/form-data">
        @method('put')
         @csrf
         <div class="mb-3">
@@ -45,6 +45,25 @@
                 @endforeach
                 {{-- <option >-- MASUKKAN KATEGORI --</option> --}}
             </select>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">post image</label>
+            @if ($post->image)
+                 <img class="img-preview img-fluid mb-3 col-sm-5 d-block" style="max-height:500px " src="{{asset('storage/'.$post->image) }}">
+            @else
+                <img class="img-preview img-fluid mb-3 col-sm-5 d-block" style="max-height:500px ">
+            @endif
+            
+            <input class="form-control 
+            @error('image')
+                is-invalid
+            @enderror" 
+            type="file" id="image" name="image">
+            @error('image')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>         
+            @enderror
         </div>
 
         <div class="mb-3">

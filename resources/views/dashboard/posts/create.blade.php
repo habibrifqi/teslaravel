@@ -48,6 +48,7 @@
 
         <div class="mb-3">
             <label for="image" class="form-label">post image</label>
+            <img class="img-preview img-fluid mb-3 col-sm-5" style="max-height:500px ">
             <input class="form-control 
             @error('image')
                 is-invalid
@@ -73,7 +74,6 @@
         <button type="submit" class="btn btn-primary">Create Post</button>
     </form>
 </div>
-
 <script>
     const title = document.querySelector('#title');
     const slug = document.querySelector('#slug');
@@ -82,7 +82,14 @@
         fetch('/dashboard/posts/checkSlug?title=' + title.value)
         .then(response => response.json())
         .then(data => slug.value = data.slug)
-    })
+    });
+
+    // console.log('asdasd');
+
+            
+    
+   
+    
 
 </script>
 

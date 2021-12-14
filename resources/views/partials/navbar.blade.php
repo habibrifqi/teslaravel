@@ -35,11 +35,14 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav nav ml-auto">
-          <li class="nav-item"><a href="index.html#home-section" class="nav-link"><span>Home</span></a></li>
-          <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>Services</span></a></li>
-          <li class="nav-item"><a href="index.html#skills-section" class="nav-link "><span>Skills</span></a></li>
+          <li class="nav-item"><a href="/post" class="nav-link {{ ($active === 'active') ? 'active' : '' }} "><span>Home</span></a></li>
           <li class="nav-item"><a href="/categories" class="nav-link {{ ($active === "categories" ) ? 'active' : '' }}"><span>kategori</span></a></li>
-          <li class="nav-item"><a href="/post" class="nav-link {{ ($active === 'active') ? 'active' : '' }} "><span>Contact</span></a></li>
+          <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>Event</span></a></li>
+
+          {{-- <li class="nav-item"><a href="index.html#skills-section" class="nav-link "><span>Skills</span></a></li> --}}
+         
+          
           @auth
             
           {{-- <li class="nav-item"><a href="/dashboard" class="nav-link"><span>Dashboard, {{ auth()->user()->name }}</span></a></li> --}}

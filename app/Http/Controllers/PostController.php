@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -29,21 +30,33 @@ class PostController extends Controller
             $title = ' by ' . $author->name;
         }
 
+        $categ = Post::categ();
+        $cc = Category::all();
+        $sidecontents =  Post::ConSide();
         return view('post', [
 
             'title' => 'All Post' . $title,
             'active' => 'active',
             // 'postingan' => Post::all()
-            'postingan' =>  Post::latest()->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString()
+            'postingan' =>  Post::latest()->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString(),
+            'categ' => $categ,
+            'cc' => $cc,
+            'sidecontents' => $sidecontents
         ]);
     }
 
     public function show(Post $post)
     {
+        $categ = Post::categ();
+        $cc = Category::all();
+        $sidecontents =  Post::ConSide();
         return view('postingan', [
             'title' => 'postingan',
             'active' => 'active',
-            'newpostingan' => $post
+            'newpostingan' => $post,
+            'categ' => $categ,
+            'cc' => $cc,
+            'sidecontents' => $sidecontents
         ]);
     }
 }

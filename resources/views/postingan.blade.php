@@ -283,48 +283,37 @@
               <div class="sidebar-box ftco-animate">
                   <h3 class="heading-sidebar">Categories</h3>
                 <ul class="categories">
-                  <li><a href="#">Interior Design <span>(12)</span></a></li>
-                  <li><a href="#">Exterior Design <span>(22)</span></a></li>
-                  <li><a href="#">Industrial Design <span>(37)</span></a></li>
-                  <li><a href="#">Landscape Design <span>(42)</span></a></li>
+                  @foreach ($cc as $key => $ll)
+                     <li><a href="/post?category={{ $ll->slug }}">{{ $ll->name }}<span>({{ $ll->posts->count() }})</span></a></li>
+                      
+                  @endforeach
                 </ul>
               </div>
               
               <div class="sidebar-box ftco-animate">
                 <h3 class="heading-sidebar">Recent Blog</h3>
-                <div class="block-21 mb-4 d-flex">
-                  <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="icon-calendar"></span> March 12, 2019</a></div>
-                      <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                @foreach ($sidecontents as $sidecontent)
+                  <div class="block-21 mb-4 d-flex">
+                      @if ($sidecontent->image)
+                          {{-- <img src="{{ asset('storage/'.$newpostingan->image) }}" alt="" class="img-fluid"> --}}
+                          {{-- <a href="single.html" class="block-20" style="background-image: url('{{ asset('storage/'.$post->image) }}');"> --}}
+                          <a class="blog-img mr-4" style="background-image: url('{{ asset('storage/'.$sidecontent->image) }}');"></a>
+                      @else
+                              {{-- <img src="https://source.unsplash.com/1600x900/?computer" alt="" class="img-fluid"> --}}
+                              {{-- <a href="single.html" class="block-20" style="background-image: url('https://source.unsplash.com/1600x900/?{{ $post->category->name }}');"> --}}
+                                <a class="blog-img mr-4" style="background-image: url('https://source.unsplash.com/1600x900/?{{ $sidecontent->category->name }}');"></a>
+                      @endif
+                    {{-- <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a> --}}
+                    <div class="text">
+                      <h3 class="heading"><a href="/post/{{ $sidecontent['slug'] }}">{{ $sidecontent->title }}</a></h3>
+                      <div class="meta">
+                        <div><a href="#"><span class="icon-calendar"></span> {{ $sidecontent->created_at->format("d M,Y") }}</a></div>
+                        <div><a href="#"><span class="icon-person"></span>{{ $sidecontent->author->name }}</a></div>
+                        {{-- <div><a href="#"><span class="icon-chat"></span> 19</a></div> --}}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="block-21 mb-4 d-flex">
-                  <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="icon-calendar"></span> March 12, 2019</a></div>
-                      <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="block-21 mb-4 d-flex">
-                  <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
-                  <div class="text">
-                    <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="icon-calendar"></span> March 12, 2019</a></div>
-                      <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
               </div>
   
               <div class="sidebar-box ftco-animate">
