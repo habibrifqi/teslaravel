@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
 use App\Models\Post;
 use App\Models\User;
@@ -85,4 +86,8 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
+
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+// except berarti kecuali
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');

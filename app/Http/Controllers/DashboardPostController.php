@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use illuminate\support\Facades\Gate;
 
 class DashboardPostController extends Controller
 {

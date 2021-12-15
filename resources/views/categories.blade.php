@@ -31,6 +31,7 @@
 							<span class="icon">
 								<i class="">
                                      <img class="z" style="" width="50" height="auto" src="{{ asset('images/icn/'.$category->slug.'.svg') }}" alt="">
+                                     {{-- <img class="z" style="" width="50" height="auto" src="https://scontent.fsoc1-1.fna.fbcdn.net/v/t39.30808-6/265746021_281706290588124_5847331381866203053_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeEc4S0n_3BkoSs-hqSz-5-zqPpD31YC922o-kPfVgL3ba_xVYpQX9UBAb2Qnn7cZQFAittvZJLr_MudHZMoudzA&_nc_ohc=2kmIfe17kM0AX_1b9k8&_nc_zt=23&_nc_ht=scontent.fsoc1-1.fna&oh=00_AT_lyTLE5UgDs2QMcZbAefDaIWwkbg-KFWI2ZROpYPr0Og&oe=61BE894F" alt=""> --}}
 									 {{-- <img class="z" style="" width="50" height="auto" src="{{ asset('images/icn/Personal.svg') }}" alt=""> --}}
                                 {{-- <img class="z1" style="" style="fill: royalblue" width="100%" height="auto" src="{{ asset('images/z1.svg') }}" alt=""> --}}
                            		</i>
